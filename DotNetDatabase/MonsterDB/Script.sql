@@ -2,49 +2,53 @@
 
 
 
---create schema Monster;
---go
+create schema Monster;
+go
 
---create table Monster.Monster
---(
---  MonsterId int identity(1,1) not null
---  ,GenderId int null  
---  ,TitleId int null
---  ,TypeId int not null
---  ,Name nvarchar not null
---  ,Picture nvarchar(256) null
---  ,Active bit not null,
---  CONSTRAINT [PK_Monster.Monster] PRIMARY KEY CLUSTERED ([MonsterId] ASC),
---  CONSTRAINT [fk_Monster_GenderId] FOREIGN KEY(GenderId) REFERENCES Monster.Gender(GenderId),
---  CONSTRAINT [fk_Monster_TitleId] FOREIGN KEY(TitleId) REFERENCES Monster.Title (Titleid),
---  CONSTRAINT [fk_Monster_TypeID] FOREIGN KEY(TypeID) REFERENCES Monster.MonsterType(MonsterTypeID)
---);
---go
+create table Monster.Monster
+(
+  MonsterId int identity(1,1) not null
+  ,GenderId int null  
+  ,TitleId int null
+  ,TypeId int not null
+  ,Name nvarchar not null
+  ,Picture nvarchar(256) null
+  ,Active bit not null,
+  CONSTRAINT [PK_Monster.Monster] PRIMARY KEY CLUSTERED ([MonsterId] ASC),
+  CONSTRAINT [fk_Monster_GenderId] FOREIGN KEY(GenderId) REFERENCES Monster.Gender(GenderId),
+  CONSTRAINT [fk_Monster_TitleId] FOREIGN KEY(TitleId) REFERENCES Monster.Title (TitleId),
+  CONSTRAINT [fk_Monster_TypeId] FOREIGN KEY(TypeId) REFERENCES Monster.MonsterType(MonsterTypeId)
+);
+go
 
---create table Monster.MonsterType
---(
---  MonsterTypeId int identity(1,1) not null
---  ,TypeName nvarchar(250) not null
---  ,Active bit not null,
---  CONSTRAINT [PK_Monster.MonsterType] PRIMARY KEY CLUSTERED ([MonsterTypeId] ASC)
---);
---go
---create table Monster.Gender
---(
---  GenderId int identity(1,1) not null
---  ,GenderName nvarchar(250) not null
---  ,Active bit not null,
---  CONSTRAINT [PK_Monster.Gender] PRIMARY KEY CLUSTERED ([GenderId] ASC)
---);
---go
---create table Monster.Title
---(
---  TitleId int identity(1,1) not null
---  ,TitleName nvarchar(250) not null
---  ,Active bit not null,
---  CONSTRAINT [PK_Monster.Title] PRIMARY KEY CLUSTERED ([TitleId] ASC)
---);
---go
+create table Monster.MonsterType
+(
+  MonsterTypeId int identity(1,1) not null
+  ,TypeName nvarchar(250) not null
+  ,Active bit not null,
+  CONSTRAINT [PK_Monster.MonsterType] PRIMARY KEY CLUSTERED ([MonsterTypeId] ASC)
+);
+go
+create table Monster.Gender
+(
+  GenderId int identity(1,1) not null
+  ,GenderName nvarchar(250) not null
+  ,Active bit not null,
+  CONSTRAINT [PK_Monster.Gender] PRIMARY KEY CLUSTERED ([GenderId] ASC)
+);
+go
+create table Monster.Title
+(
+  TitleId int identity(1,1) not null
+  ,TitleName nvarchar(250) not null
+  ,Active bit not null,
+  CONSTRAINT [PK_Monster.Title] PRIMARY KEY CLUSTERED ([TitleId] ASC)
+);
+go
+
+
+
+
 --create table Monster.Genre
 --(
 --  GenreId int identity(1,1) not null
