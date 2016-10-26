@@ -46,9 +46,6 @@ create table Monster.Title
 );
 go
 
-
-
-
 --create table Monster.Genre
 --(
 --  GenreId int identity(1,1) not null
