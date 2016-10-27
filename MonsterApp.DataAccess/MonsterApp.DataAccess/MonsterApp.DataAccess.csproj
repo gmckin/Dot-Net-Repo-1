@@ -30,9 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,14 +54,65 @@
   <ItemGroup>
     <Compile Include="AdoData.cs" />
     <Compile Include="DAL\MonsterContext.cs" />
+    <Compile Include="EfData.cs" />
+    <Compile Include="Gender.cs">
+      <DependentUpon>Monster.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Models\MonsterType.cs" />
     <Compile Include="Models\Title.cs" />
+    <Compile Include="Monster.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monster.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monster.cs">
+      <DependentUpon>Monster.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monster.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monster.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Monster1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Monster.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonsterType.cs">
+      <DependentUpon>Monster.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Title.cs">
+      <DependentUpon>Monster.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Monster.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Monster.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Monster.edmx.diagram">
+      <DependentUpon>Monster.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Monster.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Monster.edmx</DependentUpon>
+      <LastGenOutput>Monster.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Monster.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Monster.edmx</DependentUpon>
+      <LastGenOutput>Monster1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
