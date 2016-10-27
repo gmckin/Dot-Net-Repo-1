@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace MonsterApp.DataAccess
       }
       catch (Exception)
       {
-
+        Debug.WriteLine("wtf");
        return null;
       }      
     }
@@ -88,19 +89,46 @@ namespace MonsterApp.DataAccess
         return null;
       }
     }
+
+    public List<Monster> GetMonsters()
+    {
+      try
+      {
+        var ds = GetDataDisconnected("select * from Monster.Monster;");
+        var monster = new List<Monster>();
+
+        foreach (DataRow row in ds.Tables[0].Rows)
+        {
+          monster.Add(new Monster
+          {
+            MonsterId = int.Parse(row[0].ToString()),
+            GenderId = int.Parse(row[1].ToString()),
+            TitleId = int.Parse(row[2].ToString()),
+            MonsterTypeId = int.Parse(row[3].ToString()),
+            Name = row[4].ToString(),
+            Picture = row[5].ToString(),
+            Active = bool.Parse(row[6].ToString())
+          });
+        }
+        return monster;
+      }
+      catch (Exception)
+      {
+        return null;
+      }
+
+    }
+
     #endregion
 
     private DataSet GetDataDisconnected(string query)
-    {
-      
-      // create the sql command
+    {      
+     
       SqlCommand cmd;
-
-      //our container this time
+      
       DataSet ds;
-
-      // the bridge between code and db
-      SqlDataAdapter da = new SqlDataAdapter();
+     
+      SqlDataAdapter da;
 
       using (var con = new SqlConnection(connectionString))
       {
@@ -108,7 +136,7 @@ namespace MonsterApp.DataAccess
         da = new SqlDataAdapter(cmd);
 
         ds = new DataSet();
-          da.Fill(ds);
+        da.Fill(ds);
       }
       return ds;
     }
