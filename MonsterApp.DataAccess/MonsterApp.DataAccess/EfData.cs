@@ -33,6 +33,18 @@ namespace MonsterApp.DataAccess
       return db.SaveChanges() > 0;
     }
 
+    public void SearchGender()
+    {
+      var actives = db.Genders.Where(a => a.Active);
+      var inactives = db.Genders.Select(a => !a.Active);
+      var ma = db.Genders.Where(m => m.GenderName.ToLower().Contains("ma"));
+
+      //actives.ToList();
+      //inactives.ToList();
+      //ma.ToList();
+
+    }
+
     public void DeleteGender()
     {
 

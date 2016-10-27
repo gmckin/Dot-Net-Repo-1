@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoData.cs" />
+    <Compile Include="AdoDataInsert.cs" />
+    <Compile Include="AdoDataUpdate.cs" />
     <Compile Include="DAL\MonsterContext.cs" />
     <Compile Include="EfData.cs" />
     <Compile Include="Gender.cs">

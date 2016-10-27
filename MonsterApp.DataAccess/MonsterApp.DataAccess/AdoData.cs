@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MonsterApp.DataAccess
 {
-  public class AdoData
+  public partial class AdoData
   {
     private string connectionString = ConfigurationManager.ConnectionStrings["MonsterDB"].ConnectionString;
 
