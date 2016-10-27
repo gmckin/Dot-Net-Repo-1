@@ -44,9 +44,20 @@ namespace MonsterApp.Test
       Assert.Equal(expected, actual.Count);
     }
 
+    [Fact]
+    public void Test_GetMonsters()
+    {
+      AdoData data = new AdoData();
+      var expected = 0;
+
+      var actual = data.GetMonsters();
+
+      Assert.Equal(expected, actual.Count);
+    }
+
     //Negative tests
 
-    
+
 
   }
 }
