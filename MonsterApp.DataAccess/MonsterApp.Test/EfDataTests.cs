@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Xunit;
 
 namespace MonsterApp.Test
@@ -35,24 +36,30 @@ namespace MonsterApp.Test
     [Fact]
     public void Test_ChangeGender()
     {
-      //var data = new EfData();
-      //var expected = data.ChangeGender("ET", "Martian";
+      
 
-      //var actual = data.GetGender();
-
-      //Assert.True(actual);
+     
     }
 
     [Fact]
     public void Test_DeleteGender()
     {
+      //var data = new EfData();
+      //var expected = data.GetGender();
+      //var actual = data.DeleteGender(expected);
 
+      //Assert.True(actual);
     }
 
     [Fact]
     public void Test_SearchGender()
     {
+      EfData data = new EfData();
+      var expected = 5;
 
+      var actual = data.SearchGender();
+
+      Assert.Equal(expected, actual);
     }
   }
 }

@@ -22,6 +22,19 @@ namespace MonsterApp.DataAccess
       return InsertData(query, n) == 1;
     }
 
+    public bool InsertMonster(Models.Monster monster)
+    {
+      var name = new SqlParameter("name", monster.Name);
+      var genderid = new SqlParameter("genderid", monster.GenderId);
+      var titleid = new SqlParameter("titleid", monster.TitleId);
+      var monstertypeid = new SqlParameter("monstertypeid", monster.MonsterTypeId);
+      var picture = new SqlParameter("picture", monster.Picture);
+      var active = new SqlParameter("active", 1);
+      var query = "insert into Monster.Monster(Name, GenderId, TitleId, MonsterTypeId, Picture, Active) values (@name, @genderid, @titleid, @monstertypeid, @picture, 1)";
+
+      return InsertData(query, name, genderid, titleid, monstertypeid, picture, active) == 1; ;
+    }
+
     /// <summary>
     /// 
     /// </summary>

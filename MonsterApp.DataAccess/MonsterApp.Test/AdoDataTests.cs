@@ -15,7 +15,7 @@ namespace MonsterApp.Test
     public void Test_GetGenders()
     {
       AdoData data = new AdoData();
-      var expected = 3;
+      var expected = 5;
 
       var actual = data.GetGenders();
 
@@ -55,8 +55,17 @@ namespace MonsterApp.Test
       Assert.Equal(expected, actual.Count);
     }
 
+    [Fact]
     //Negative tests
+    public void Test_GetRecentGenders()
+    {
+      AdoData data = new AdoData();
+      var expected = 5;
 
+      var actual = data.GetGenders();
+
+      Assert.Equal(expected, actual.Count);
+    }
 
 
   }

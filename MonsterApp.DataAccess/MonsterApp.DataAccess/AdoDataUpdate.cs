@@ -29,5 +29,31 @@ namespace MonsterApp.DataAccess
 
       return result >= 0;
     }
+
+    public bool UpdateMonster(Models.Monster monster)
+    {
+      var query = "update Monster.Monster set Name = @name, GenderId = @genderid, TitleId = @titleid, MonsterTypeId = @monstertypeid, Picture =  @picture, Active = @active where MonsterId = @id";
+
+      var name = new SqlParameter("name", monster.Name);
+      var genderid = new SqlParameter("genderid", monster.GenderId);
+      var titleid = new SqlParameter("titleid", monster.TitleId);
+      var monstertypeid = new SqlParameter("monstertypeid", monster.MonsterTypeId);
+      var picture = new SqlParameter("picture", monster.Picture);
+      var active = new SqlParameter("active", 1);
+      
+      var id = new SqlParameter("id", monster.MonsterId);
+      int result;
+
+      using (var connection = new SqlConnection(connectionString))
+      {
+        var cmd = new SqlCommand(query, connection);
+
+        connection.Open();
+        cmd.Parameters.AddRange(new SqlParameter[] { id, name, genderid, titleid, monstertypeid, picture, active });
+        result = cmd.ExecuteNonQuery();
+      }
+
+      return result >= 0;
+    }
   }
 }
