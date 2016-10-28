@@ -55,11 +55,22 @@ namespace MonsterApp.Test
     public void Test_SearchGender()
     {
       EfData data = new EfData();
-      var expected = 5;
+      var expected = 7;
 
       var actual = data.SearchGender();
 
       Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Test_InsertMonster()
+    {
+      var data = new EfData();
+      var expected = new Monster() { Name = "Dalek", GenderId = null, TitleId = null, TypeId = null, Picture = "x", Active = true };
+
+      var actual = data.InsertMonster(expected);
+
+      Assert.True(actual);
     }
   }
 }

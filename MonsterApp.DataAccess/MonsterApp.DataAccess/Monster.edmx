@@ -27,9 +27,9 @@
         </EntityType>
         <EntityType Name="MonsterType">
           <Key>
-            <PropertyRef Name="MonsterTypeId" />
+            <PropertyRef Name="TypeId" />
           </Key>
-          <Property Name="MonsterTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
@@ -70,7 +70,7 @@
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonsterType">
-              <PropertyRef Name="MonsterTypeId" />
+              <PropertyRef Name="TypeId" />
             </Principal>
             <Dependent Role="Monster">
               <PropertyRef Name="TypeId" />
@@ -126,9 +126,9 @@
         </EntityType>
         <EntityType Name="MonsterType">
           <Key>
-            <PropertyRef Name="MonsterTypeId" />
+            <PropertyRef Name="TypeId" />
           </Key>
-          <Property Name="MonsterTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Monsters" Relationship="Self.fk_Monster_TypeId" FromRole="MonsterType" ToRole="Monster" />
@@ -171,7 +171,7 @@
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonsterType">
-              <PropertyRef Name="MonsterTypeId" />
+              <PropertyRef Name="TypeId" />
             </Principal>
             <Dependent Role="Monster">
               <PropertyRef Name="TypeId" />
@@ -227,7 +227,7 @@
           <EntitySetMapping Name="MonsterTypes">
             <EntityTypeMapping TypeName="MonsterDBModel.MonsterType">
               <MappingFragment StoreEntitySet="MonsterType">
-                <ScalarProperty Name="MonsterTypeId" ColumnName="MonsterTypeId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>

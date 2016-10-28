@@ -20,7 +20,7 @@ namespace MonsterApp.DataAccess
             this.Monsters = new HashSet<Monster>();
         }
     
-        public int MonsterTypeId { get; set; }
+        public int TypeId { get; set; }
         public string TypeName { get; set; }
         public bool Active { get; set; }
     

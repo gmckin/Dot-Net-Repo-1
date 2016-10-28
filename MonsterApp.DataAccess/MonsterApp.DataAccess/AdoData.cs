@@ -83,7 +83,7 @@ namespace MonsterApp.DataAccess
         {
           monstertype.Add(new MonsterType
           {
-            MonsterTypeId = int.Parse(row[0].ToString()),
+            TypeId = int.Parse(row[0].ToString()),
            TypeName = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
           });

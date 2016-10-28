@@ -32,12 +32,12 @@ namespace MonsterApp.DataAccess
 
     public bool UpdateMonster(Models.Monster monster)
     {
-      var query = "update Monster.Monster set Name = @name, GenderId = @genderid, TitleId = @titleid, MonsterTypeId = @monstertypeid, Picture =  @picture, Active = @active where MonsterId = @id";
+      var query = "update Monster.Monster set Name = @name, GenderId = @genderid, TitleId = @titleid, TypeId = @typeid, Picture =  @picture, Active = @active where MonsterId = @id";
 
       var name = new SqlParameter("name", monster.Name);
       var genderid = new SqlParameter("genderid", monster.GenderId);
       var titleid = new SqlParameter("titleid", monster.TitleId);
-      var monstertypeid = new SqlParameter("monstertypeid", monster.MonsterTypeId);
+      var monstertypeid = new SqlParameter("typeid", monster.TypeId);
       var picture = new SqlParameter("picture", monster.Picture);
       var active = new SqlParameter("active", 1);
       

@@ -35,9 +35,9 @@ namespace MonsterApp.DataAccess
 
     public int SearchGender()
     {
-      var actives = db.Genders.Where(a => a.Active);
-      var inactives = db.Genders.Select(a => !a.Active);
-      var ma = db.Genders.Where(m => m.GenderName.ToLower().Contains("ma"));
+      //var actives = db.Genders.Where(a => a.Active);
+      //var inactives = db.Genders.Select(a => !a.Active);
+      //var ma = db.Genders.Where(m => m.GenderName.ToLower().Contains("ma"));
       var topgenderid = db.Genders.Where(a => a.Active).Max(a => a.GenderId);
       //actives.ToList();
       //inactives.ToList();
@@ -47,12 +47,15 @@ namespace MonsterApp.DataAccess
 
     }
 
-    public void DeleteGender(Gender gender)
+    public bool DeleteGender(Gender gender, EntityState state)
     {
       var entry = db.Entry<Gender>(gender);
+
       gender.Active = false;
       
-      db.SaveChanges();
+      entry.State = state;
+
+      return db.SaveChanges() > 0;      
     }
 
 
@@ -100,5 +103,14 @@ namespace MonsterApp.DataAccess
 
       return db.SaveChanges() > 0;
     }
+    
+    public bool ChangeMonster(Monster monster, EntityState state)
+    {
+      var entry = db.Entry<Monster>(monster);
+      entry.State = state;
+
+      return db.SaveChanges() > 0;
+    }
+
   }
 }
