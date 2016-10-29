@@ -13,10 +13,10 @@ namespace MonsterApp.DataAccess
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MonsterDBEntities : DbContext
+    public partial class MonsterDBEntities1 : DbContext
     {
-        public MonsterDBEntities()
-            : base("name=MonsterDBEntities")
+        public MonsterDBEntities1()
+            : base("name=MonsterDBEntities1")
         {
         }
     

@@ -83,7 +83,7 @@ namespace MonsterApp.DataAccess
         {
           monstertype.Add(new MonsterType
           {
-            TypeId = int.Parse(row[0].ToString()),
+           MonsterTypeId = int.Parse(row[0].ToString()),
            TypeName = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
           });
@@ -136,7 +136,7 @@ namespace MonsterApp.DataAccess
             TitleId = int.Parse(row[2].ToString()),
             TypeId = int.Parse(row[3].ToString()),
             Name = row[4].ToString(),
-            Picture = row[5].ToString(),
+            PicturePath = row[5].ToString(),
             Active = bool.Parse(row[6].ToString())
           });
         }

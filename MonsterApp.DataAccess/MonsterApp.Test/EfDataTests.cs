@@ -66,9 +66,9 @@ namespace MonsterApp.Test
     public void Test_InsertMonster()
     {
       var data = new EfData();
-      var expected = new Monster() { Name = "Dalek", GenderId = null, TitleId = null, TypeId = null, Picture = "x", Active = true };
+      var expected = new Monster() { Name = "Dalek", GenderId = 1, TitleId = 1, TypeId = 1, PicturePath = "x", Active = true };
 
-      var actual = data.InsertMonster(expected);
+      var actual = data.ChangeMonster(expected, System.Data.Entity.EntityState.Added);
 
       Assert.True(actual);
     }

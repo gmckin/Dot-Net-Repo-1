@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cb4a41c3392d47ab8a4b1552ed8ed007" Name="Diagram1">
+      <Diagram DiagramId="f0fd07d6027040d58073c96b6453b339" Name="Diagram1">
         <EntityTypeShape EntityType="MonsterDBModel.Gender" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MonsterDBModel.Monster" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="MonsterDBModel.MonsterType" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="MonsterDBModel.Title" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <AssociationConnector Association="MonsterDBModel.fk_Monster_GenderId" ManuallyRouted="false" />
-        <AssociationConnector Association="MonsterDBModel.fk_Monster_TitleId" ManuallyRouted="false" />
-        <AssociationConnector Association="MonsterDBModel.fk_Monster_TypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterDBModel.fk_monster_genderid" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterDBModel.fk_monster_titleid" ManuallyRouted="false" />
+        <AssociationConnector Association="MonsterDBModel.fk_monster_typeid" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

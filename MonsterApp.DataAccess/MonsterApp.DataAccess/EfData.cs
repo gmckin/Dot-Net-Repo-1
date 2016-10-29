@@ -10,7 +10,7 @@ namespace MonsterApp.DataAccess
   public class EfData
   {
 
-    private MonsterDBEntities db = new MonsterDBEntities();
+    private MonsterDBEntities1 db = new MonsterDBEntities1();
 
 
     public List<Gender> GetGender()

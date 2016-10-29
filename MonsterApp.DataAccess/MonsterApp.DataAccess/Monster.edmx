@@ -21,15 +21,15 @@
           <Property Name="GenderId" Type="int" />
           <Property Name="TitleId" Type="int" />
           <Property Name="TypeId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="1" Nullable="false" />
-          <Property Name="Picture" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="PicturePath" Type="nvarchar" MaxLength="256" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="MonsterType">
           <Key>
-            <PropertyRef Name="TypeId" />
+            <PropertyRef Name="MonsterTypeId" />
           </Key>
-          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonsterTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypeName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
@@ -41,7 +41,7 @@
           <Property Name="TitleName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="fk_Monster_GenderId">
+        <Association Name="fk_monster_genderid">
           <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
@@ -53,7 +53,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Monster_TitleId">
+        <Association Name="fk_monster_titleid">
           <End Role="Title" Type="Self.Title" Multiplicity="0..1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
@@ -65,12 +65,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Monster_TypeId">
+        <Association Name="fk_monster_typeid">
           <End Role="MonsterType" Type="Self.MonsterType" Multiplicity="1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonsterType">
-              <PropertyRef Name="TypeId" />
+              <PropertyRef Name="MonsterTypeId" />
             </Principal>
             <Dependent Role="Monster">
               <PropertyRef Name="TypeId" />
@@ -82,15 +82,15 @@
           <EntitySet Name="Monster" EntityType="Self.Monster" Schema="Monster" store:Type="Tables" />
           <EntitySet Name="MonsterType" EntityType="Self.MonsterType" Schema="Monster" store:Type="Tables" />
           <EntitySet Name="Title" EntityType="Self.Title" Schema="Monster" store:Type="Tables" />
-          <AssociationSet Name="fk_Monster_GenderId" Association="Self.fk_Monster_GenderId">
+          <AssociationSet Name="fk_monster_genderid" Association="Self.fk_monster_genderid">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Monster" EntitySet="Monster" />
           </AssociationSet>
-          <AssociationSet Name="fk_Monster_TitleId" Association="Self.fk_Monster_TitleId">
+          <AssociationSet Name="fk_monster_titleid" Association="Self.fk_monster_titleid">
             <End Role="Title" EntitySet="Title" />
             <End Role="Monster" EntitySet="Monster" />
           </AssociationSet>
-          <AssociationSet Name="fk_Monster_TypeId" Association="Self.fk_Monster_TypeId">
+          <AssociationSet Name="fk_monster_typeid" Association="Self.fk_monster_typeid">
             <End Role="MonsterType" EntitySet="MonsterType" />
             <End Role="Monster" EntitySet="Monster" />
           </AssociationSet>
@@ -107,7 +107,7 @@
           <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GenderName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Monsters" Relationship="Self.fk_Monster_GenderId" FromRole="Gender" ToRole="Monster" />
+          <NavigationProperty Name="Monsters" Relationship="Self.fk_monster_genderid" FromRole="Gender" ToRole="Monster" />
         </EntityType>
         <EntityType Name="Monster">
           <Key>
@@ -117,21 +117,21 @@
           <Property Name="GenderId" Type="Int32" />
           <Property Name="TitleId" Type="Int32" />
           <Property Name="TypeId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Picture" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PicturePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Gender" Relationship="Self.fk_Monster_GenderId" FromRole="Monster" ToRole="Gender" />
-          <NavigationProperty Name="Title" Relationship="Self.fk_Monster_TitleId" FromRole="Monster" ToRole="Title" />
-          <NavigationProperty Name="MonsterType" Relationship="Self.fk_Monster_TypeId" FromRole="Monster" ToRole="MonsterType" />
+          <NavigationProperty Name="Gender" Relationship="Self.fk_monster_genderid" FromRole="Monster" ToRole="Gender" />
+          <NavigationProperty Name="Title" Relationship="Self.fk_monster_titleid" FromRole="Monster" ToRole="Title" />
+          <NavigationProperty Name="MonsterType" Relationship="Self.fk_monster_typeid" FromRole="Monster" ToRole="MonsterType" />
         </EntityType>
         <EntityType Name="MonsterType">
           <Key>
-            <PropertyRef Name="TypeId" />
+            <PropertyRef Name="MonsterTypeId" />
           </Key>
-          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonsterTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Monsters" Relationship="Self.fk_Monster_TypeId" FromRole="MonsterType" ToRole="Monster" />
+          <NavigationProperty Name="Monsters" Relationship="Self.fk_monster_typeid" FromRole="MonsterType" ToRole="Monster" />
         </EntityType>
         <EntityType Name="Title">
           <Key>
@@ -140,9 +140,9 @@
           <Property Name="TitleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Monsters" Relationship="Self.fk_Monster_TitleId" FromRole="Title" ToRole="Monster" />
+          <NavigationProperty Name="Monsters" Relationship="Self.fk_monster_titleid" FromRole="Title" ToRole="Monster" />
         </EntityType>
-        <Association Name="fk_Monster_GenderId">
+        <Association Name="fk_monster_genderid">
           <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Monster_TitleId">
+        <Association Name="fk_monster_titleid">
           <End Role="Title" Type="Self.Title" Multiplicity="0..1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,32 +166,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Monster_TypeId">
+        <Association Name="fk_monster_typeid">
           <End Role="MonsterType" Type="Self.MonsterType" Multiplicity="1" />
           <End Role="Monster" Type="Self.Monster" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonsterType">
-              <PropertyRef Name="TypeId" />
+              <PropertyRef Name="MonsterTypeId" />
             </Principal>
             <Dependent Role="Monster">
               <PropertyRef Name="TypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MonsterDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MonsterDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Genders" EntityType="Self.Gender" />
           <EntitySet Name="Monsters" EntityType="Self.Monster" />
           <EntitySet Name="MonsterTypes" EntityType="Self.MonsterType" />
           <EntitySet Name="Titles" EntityType="Self.Title" />
-          <AssociationSet Name="fk_Monster_GenderId" Association="Self.fk_Monster_GenderId">
+          <AssociationSet Name="fk_monster_genderid" Association="Self.fk_monster_genderid">
             <End Role="Gender" EntitySet="Genders" />
             <End Role="Monster" EntitySet="Monsters" />
           </AssociationSet>
-          <AssociationSet Name="fk_Monster_TitleId" Association="Self.fk_Monster_TitleId">
+          <AssociationSet Name="fk_monster_titleid" Association="Self.fk_monster_titleid">
             <End Role="Title" EntitySet="Titles" />
             <End Role="Monster" EntitySet="Monsters" />
           </AssociationSet>
-          <AssociationSet Name="fk_Monster_TypeId" Association="Self.fk_Monster_TypeId">
+          <AssociationSet Name="fk_monster_typeid" Association="Self.fk_monster_typeid">
             <End Role="MonsterType" EntitySet="MonsterTypes" />
             <End Role="Monster" EntitySet="Monsters" />
           </AssociationSet>
@@ -201,7 +201,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MonsterDBModelStoreContainer" CdmEntityContainer="MonsterDBEntities">
+        <EntityContainerMapping StorageEntityContainer="MonsterDBModelStoreContainer" CdmEntityContainer="MonsterDBEntities1">
           <EntitySetMapping Name="Genders">
             <EntityTypeMapping TypeName="MonsterDBModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
@@ -219,7 +219,7 @@
                 <ScalarProperty Name="TitleId" ColumnName="TitleId" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -227,7 +227,7 @@
           <EntitySetMapping Name="MonsterTypes">
             <EntityTypeMapping TypeName="MonsterDBModel.MonsterType">
               <MappingFragment StoreEntitySet="MonsterType">
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="MonsterTypeId" ColumnName="MonsterTypeId" />
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>

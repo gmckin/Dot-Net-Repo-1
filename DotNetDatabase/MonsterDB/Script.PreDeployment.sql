@@ -12,9 +12,9 @@
 use master;
 go
 
-if (DB_ID(N'MonsterDB') is not null)
+if(db_id(N'MonsterDB') is not null)
 begin
-  drop database MonsterDB;
+	drop database MonsterDB;
 end;
 
 create database MonsterDB;
@@ -23,8 +23,8 @@ go
 use MonsterDB;
 go
 
-if (SCHEMA_ID(N'Monster') is not null)
+if(SCHEMA_ID(N'Monster') is not null)
 begin
-  drop schema Monster;
-end;
-
+	drop schema Monster;
+end
+go

@@ -28,9 +28,9 @@ namespace MonsterApp.DataAccess
       var genderid = new SqlParameter("genderid", monster.GenderId);
       var titleid = new SqlParameter("titleid", monster.TitleId);
       var typeid = new SqlParameter("typeid", monster.TypeId);
-      var picture = new SqlParameter("picture", monster.Picture);
+      var picture = new SqlParameter("picture", monster.PicturePath);
       var active = new SqlParameter("active", 1);
-      var query = "insert into Monster.Monster(Name, GenderId, TitleId, TypeId, Picture, Active) values (@name, @genderid, @titleid, @typeid, @picture, 1)";
+      var query = "insert into Monster.Monster(Name, GenderId, TitleId, TypeId, PicturePath, Active) values (@name, @genderid, @titleid, @typeid, @picture, 1)";
 
       return InsertData(query, name, genderid, titleid, typeid, picture, active) == 1; ;
     }

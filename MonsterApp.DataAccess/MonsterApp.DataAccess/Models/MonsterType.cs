@@ -8,7 +8,7 @@ namespace MonsterApp.DataAccess.Models
 {
   public class MonsterType
   {
-    public int TypeId { get; set; }
+    public int MonsterTypeId { get; set; }
     public string Name { get; set; }
     public bool Active { get; set; }
   }

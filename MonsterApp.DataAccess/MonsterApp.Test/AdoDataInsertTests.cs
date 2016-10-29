@@ -20,7 +20,7 @@ namespace MonsterApp.Test
       monster.GenderId = 1;
       monster.TitleId = 1;
       monster.TypeId = 1;
-      monster.Picture = "x";
+      monster.PicturePath = "x";
       monster.Active = true;
 
       var actual = data.InsertMonster(monster);

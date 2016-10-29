@@ -13,7 +13,7 @@ namespace MonsterApp.DataAccess.Models
     public int TitleId { get; set; }
     public int TypeId { get; set; }
     public string Name { get; set; }
-    public string Picture { get; set; }
+    public string PicturePath { get; set; }
     public bool Active { get; set; }
   }
 }
