@@ -1,4 +1,4 @@
-﻿using MonsterApp.DataAccess.Models;
+﻿using Monster = MonsterApp.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MonsterApp.DataAccess
 {
-  public class AdoData
+  public partial class AdoData
   {
     private string connectionString = ConfigurationManager.ConnectionStrings["MonsterDB"].ConnectionString;
 
@@ -54,7 +54,7 @@ namespace MonsterApp.DataAccess
           monstertype.Add(new MonsterType
           {
             MonsterTypeId = int.Parse(row[0].ToString()),
-            Name = row[1].ToString(),
+           TypeName = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
           });
         }
@@ -104,7 +104,7 @@ namespace MonsterApp.DataAccess
             MonsterId = int.Parse(row[0].ToString()),
             GenderId = int.Parse(row[1].ToString()),
             TitleId = int.Parse(row[2].ToString()),
-            MonsterTypeId = int.Parse(row[3].ToString()),
+            TypeId = int.Parse(row[3].ToString()),
             Name = row[4].ToString(),
             Picture = row[5].ToString(),
             Active = bool.Parse(row[6].ToString())
