@@ -1,4 +1,4 @@
-﻿using Monster = MonsterApp.DataAccess.Models;
+﻿using MonsterApp.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -41,36 +41,6 @@ namespace MonsterApp.DataAccess
       }      
     }
 
-    public int GetRecentGender()
-    {
-      try
-      {
-        var ds = GetDataDisconnected("select Top[1] * from Monster.Gender as g order by g.GenderId desc;");
-        Models.Gender gen = new Models.Gender();
-        gen.GenderId = int.Parse(ds.Tables[0].Rows[0][0].ToString());
-        gen.GenderName = ds.Tables[0].Rows[0][1].ToString();
-        gen.Active = bool.Parse(ds.Tables[0].Rows[0][2].ToString());
-
-        //var genders = new List<Gender>();
-
-        //foreach (DataRow row in ds.Tables[0].Rows)
-        //{
-        //  genders.Add(new Gender
-        //  {
-        //    GenderId = int.Parse(row[0].ToString()),
-        //    GenderName = row[1].ToString(),
-        //    Active = bool.Parse(row[2].ToString())
-        //  });
-        //}
-        return gen.GenderId;
-      }
-      catch (Exception)
-      {
-        Debug.WriteLine("wtf");
-        return 0;
-      }
-    }
-
     public List<MonsterType> GetMonsterTypes()
     {
       try
@@ -83,8 +53,8 @@ namespace MonsterApp.DataAccess
         {
           monstertype.Add(new MonsterType
           {
-           MonsterTypeId = int.Parse(row[0].ToString()),
-           TypeName = row[1].ToString(),
+            MonsterTypeId = int.Parse(row[0].ToString()),
+           Name = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
           });
         }
@@ -134,9 +104,9 @@ namespace MonsterApp.DataAccess
             MonsterId = int.Parse(row[0].ToString()),
             GenderId = int.Parse(row[1].ToString()),
             TitleId = int.Parse(row[2].ToString()),
-            TypeId = int.Parse(row[3].ToString()),
+            MonsterTypeId = int.Parse(row[3].ToString()),
             Name = row[4].ToString(),
-            PicturePath = row[5].ToString(),
+            Picture = row[5].ToString(),
             Active = bool.Parse(row[6].ToString())
           });
         }
@@ -149,8 +119,6 @@ namespace MonsterApp.DataAccess
 
     }
 
-
-    
     #endregion
 
     private DataSet GetDataDisconnected(string query)
