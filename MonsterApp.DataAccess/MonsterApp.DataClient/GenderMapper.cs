@@ -1,14 +1,16 @@
-﻿using DA= MonsterApp.DataAccess.Models;
+﻿using DA = MonsterApp.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MonsterApp.DataClient.Models;
+using MonsterApp.DataAccess;
 
-namespace MonsterApp.DataClient.Models
+namespace MonsterApp.DataClient
 {
   public class GenderMapper
   {
-    public static GenderDAO MapToGenderDAO(DA.Gender gender)
+    public static GenderDAO MapToGenderDAO(Gender gender)
     {
       var g = new GenderDAO();
       g.Id = gender.GenderId;

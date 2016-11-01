@@ -5,8 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using MonsterApp.DataClient.Models;
-using MonsterApp.DataAccess;
 using MonsterApp.DataAccess.Models;
+using MonsterApp.DataAccess;
 
 namespace MonsterApp.DataClient
 {

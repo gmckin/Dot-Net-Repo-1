@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DA = MonsterApp.DataAccess.Models;
+using MonsterApp.DataClient.Models;
+using MonsterApp.DataAccess;
 
-namespace MonsterApp.DataClient.Models
+namespace MonsterApp.DataClient
 {
   public class MonsterTypeMapper
   {
-    public static MonsterTypeDAO MapToMonsterTypeDAO(DA.MonsterType monstertype)
+    public static MonsterTypeDAO MapToMonsterTypeDAO(MonsterType monstertype)
     {
       var m = new MonsterTypeDAO();
       m.Id = monstertype.MonsterTypeId;
-      m.Name = monstertype.Name;
+      m.Name = monstertype.TypeName;
 
 
       return m;

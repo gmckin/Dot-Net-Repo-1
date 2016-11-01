@@ -79,15 +79,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMonsterService.cs" />
-    <Compile Include="Models\GenderAutoMapper.cs" />
+    <Compile Include="GenderAutoMapper.cs" />
     <Compile Include="Models\GenderDAO.cs" />
-    <Compile Include="Models\GenderMapper.cs" />
-    <Compile Include="Models\MonsterTypeAutoMapper.cs" />
+    <Compile Include="GenderMapper.cs" />
+    <Compile Include="MonsterTypeAutoMapper.cs" />
     <Compile Include="Models\MonsterTypeDAO.cs" />
-    <Compile Include="Models\MonsterTypeMapper.cs" />
-    <Compile Include="Models\TitleAutoMapper.cs" />
+    <Compile Include="MonsterTypeMapper.cs" />
+    <Compile Include="TitleAutoMapper.cs" />
     <Compile Include="Models\TitleDAO.cs" />
-    <Compile Include="Models\TitleMapper.cs" />
+    <Compile Include="TitleMapper.cs" />
     <Compile Include="MonsterService.svc.cs">
       <DependentUpon>MonsterService.svc</DependentUpon>
     </Compile>
