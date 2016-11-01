@@ -279,4 +279,6 @@ __pycache__/
 build/
 /MonsterApp.DataAccess/MonsterApp.DataAccess/DAL
 /MonsterApp.DataAccess/MonsterApp.DataAccess/App.config
-/MonsterApp.DataAccess/MonsterApp.MSTests/App.config
+/MonsterApp.DataAccess/MonsterApp.DataClient/Web.config
+/MonsterApp.DataAccess/MonsterApp.DataClient/Web.Debug.config
+/MonsterApp.DataAccess/MonsterApp.DataClient/Web.Release.config
