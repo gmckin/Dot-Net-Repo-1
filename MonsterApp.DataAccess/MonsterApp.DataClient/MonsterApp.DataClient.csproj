@@ -82,6 +82,9 @@
     <Compile Include="GenderAutoMapper.cs" />
     <Compile Include="Models\GenderDAO.cs" />
     <Compile Include="GenderMapper.cs" />
+    <Compile Include="Models\MonsterDAO.cs" />
+    <Compile Include="MonsterAutoMapper.cs" />
+    <Compile Include="MonsterMapper.cs" />
     <Compile Include="MonsterTypeAutoMapper.cs" />
     <Compile Include="Models\MonsterTypeDAO.cs" />
     <Compile Include="MonsterTypeMapper.cs" />
