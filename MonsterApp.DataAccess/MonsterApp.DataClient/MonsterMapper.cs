@@ -11,17 +11,16 @@ namespace MonsterApp.DataClient
   public class MonsterMapper
   {
 
-    //public static MonsterDAO MapToMonsterDAO(Monster monster)
-    //{
-    //  var m = new MonsterDAO();
-    //  m.Id = monster.MonsterId;
-    //  m.Name = monster.Name;
-    //  m.Gender = monster.GenderId;
-    //  m.Type = monster.MonsterType.MonsterTypeId;
-     
+    public static MonsterDAO MapToMonsterDAO(Monster monster)
+    {
+      var m = new MonsterDAO();
+      m.Id = monster.MonsterId;
+      m.Name = monster.Name;
+      m.Gender.Id = monster.Gender.GenderId;
+      m.Type.Id = monster.MonsterType.MonsterTypeId;
 
-    //  return m;
-    //}
+      return m;
+    }
 
     public static DA.Monster MapToMonster(MonsterDAO monster)
     {
